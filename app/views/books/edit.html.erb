@@ -4,11 +4,14 @@
 <%= form_for(@book) do |f| %>
 <!-- エラーメッセージ -->
   <% if @book.errors.any? %>
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+    <div class="alert">
+      <h2><%= @book.errors.count %> errors prohibited this book from being saved:</h2>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 <!-- ここまで -->
   <div class="field">
